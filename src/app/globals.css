@@ -1,0 +1,57 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    @apply bg-bone text-turf-deep font-sans antialiased;
+  }
+
+  ::selection {
+    background-color: #e0b54a;
+    color: #071619;
+  }
+
+  :focus-visible {
+    outline: 2px solid #e0b54a;
+    outline-offset: 3px;
+    border-radius: 2px;
+  }
+}
+
+@layer components {
+  .wrap {
+    @apply mx-auto w-full max-w-[1240px] px-5 sm:px-8;
+  }
+
+  /* Hairline grid on dark panels — reads as a drawing board, not decoration */
+  .blueprint {
+    background-image:
+      linear-gradient(to right, rgba(224, 181, 74, 0.07) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(224, 181, 74, 0.07) 1px, transparent 1px);
+    background-size: 56px 56px;
+  }
+
+  /* 3K twill weave, the actual surface of the products */
+  .twill {
+    background-image:
+      repeating-linear-gradient(45deg, rgba(255, 255, 255, 0.04) 0 6px, transparent 6px 12px),
+      repeating-linear-gradient(-45deg, rgba(0, 0, 0, 0.07) 0 6px, transparent 6px 12px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
